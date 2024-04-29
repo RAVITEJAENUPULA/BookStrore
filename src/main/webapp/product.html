@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Details</title>
+<style>
+     input[type="submit"]{
+		background:linear-gradient(#33ff00,#ffff00);
+		border:none;
+		width:50%;
+		height:25px;
+      
+	}
+	input[type="submit"]:hover{
+		background:linear-gradient(#ffff00,#33ff00);
+	}
+    div{
+        
+        background-color: aqua;
+        width:50%;
+    }
+    body{
+        background: linear-gradient(to right,#ff330a,#ffff00);
+    }
+    .gridbox{
+	display:grid;
+	column-gap:5px;
+	width:20%;		/*		width of grid box */
+	margin:auto;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <div class="gridbox">
+       <h2>BooK Details</h2>
+      <form id="f1" action="add" method="post">
+        
+		ProductCode:<input type="text" id="pid" name="pid"  placeholder="enter the book id"><span id="errid" class="err"></span><br><br>
+		ProductName:<input type="text" id="pname" name="pname" placeholder="enter the book name"><span id="errna" class="err"></span><br><br>
+		ProductPrice:<input type="text" id="pprice" name="pprice" placeholder="enter the book price"><span id="errpr" class="err"></span><br><br>
+		ProductQty:<input type="text" id="pqty" name="pqty" placeholder="enter the book quantity"><span id="errqt" class="err"></span><br><br>
+        <input type="submit" value="AddProduct" id="sb"style="margin:auto">
+    </form>
+	</div>	
+<script>
+    document.getElementById("f1").addEventListener("submit",checkData);
+	function checkData(f){
+		let una=document.getElementById("pid").value;
+		const idexpr=/^[A-Za-z]*[\d]*$/;
+        if(idexpr.test(una)==false || una==""){
+			f.preventDefault();
+			document.getElementById("errid").innerHTML="plz enter valid id";
+        }
+		else{
+			document.getElementById("errid").innerHTML="";
+			}
+       let uname=document.getElementById("pname").value;
+		const naexpr=/^[A-Za-z]*$/;
+        if(naexpr.test(uname)==false || uname==""){
+			f.preventDefault();
+			document.getElementById("errna").innerHTML="plz enter valid name";
+        }
+		else{
+			document.getElementById("errna").innerHTML="";
+			}
+			
+        upr=document.getElementById("pprice").value;
+		const prexpr=/^[\d]*$/;
+        if(prexpr.test(upr)==false || upr==""){
+			f.preventDefault();
+			document.getElementById("errpr").innerHTML="plz enter valid price";
+        }
+		else{
+			document.getElementById("errpr").innerHTML="";
+			}
+			uqt=document.getElementById("pqty").value;
+		const qtexpr=/^[\d]*$/;
+        if(qtexpr.test(uqt)==false || uqt==""){
+			f.preventDefault();
+			document.getElementById("errqt").innerHTML="plz enter valid quantity";
+        }
+		else{
+			document.getElementById("errqt").innerHTML="";
+			}
+		}
+
+    
+</script> 
+
+</body>
+</html>>
